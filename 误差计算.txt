@@ -1,0 +1,17 @@
+RMSE = sqrt(sum((ture-run).^2)./length(ture))   #均方根误差
+
+RE =  norm(ture-run,2)/norm(ture,2)  #整体相对误差
+
+R   =  corrcoef(ture,run)  #相关系数
+
+MAE =  mean(abs(ture-run))#平均绝对误差
+
+MAPE = mean(abs((ture-run)./ture))#平均绝对百分比误差
+
+#波形显示
+ plot(ture);
+ hold on;
+ plot(run);
+legend('真实载荷','识别载荷')
+
+E = (max(ture)-max(run))/max(ture) %峰值相对误差
